@@ -9,7 +9,8 @@ end
 def show 
 
 @article = Article.find(params[:id])
-
+@comment = Comment.new
+@comment.article_id = @article.id
 end 
 
 def new 
@@ -27,7 +28,7 @@ end
 
 def destroy
 	@article = Article.find(params[:id])
-	@article.destroy#
+	@article.destroy
 
 	flash.notice = "Article '#{@article.title}' Deleted!" 
 
